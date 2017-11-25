@@ -32,8 +32,8 @@ public class Repository {
         for (int i = index; i < persons.length - 1; i++)
             persons[i] = persons[i + 1];
         if (--count << 1 == persons.length) {
-            Person[] temp = Arrays.copyOf(persons, count >> 1);
-            persons = temp;
+            Person[] t = Arrays.copyOf(persons, count >> 1);
+            persons = t;
         }
     }
 

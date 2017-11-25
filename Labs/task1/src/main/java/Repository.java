@@ -12,10 +12,7 @@ public class Repository {
     }
 
     public Person[] getPersons() {
-        Person[] result = new Person[count];
-        for (int i = 0; i < count; i++)
-            result[i] = persons[i];
-        return result;
+        return persons = Arrays.copyOf(persons, count);
     }
 
     public int getCount() {
@@ -23,12 +20,8 @@ public class Repository {
     }
 
     public void add(Person person) {
-        if (count == persons.length) {
-            Person[] temp = new Person[count << 1];
-            for (int i = 0; i < count; i++)
-                temp[i] = persons[i];
-            persons = temp;
-        }
+        if (count == persons.length)
+            persons = Arrays.copyOf(persons, count << 1);
         persons[count++] = person;
     }
 
@@ -36,12 +29,8 @@ public class Repository {
         for (int i = index; i < count - 1; i++)
             persons[i] = persons[i + 1];
         persons[--count] = null;
-        if (count << 1 == persons.length) {
-            Person[] temp = new Person[count >> 1];
-            for (int i = 0; i < count; i++)
-                temp[i] = persons[i];
-            persons = temp;
-        }
+        if (count << 2 == persons.length)
+            persons = Arrays.copyOf(persons, count << 1);
     }
 
     public void bubbleSort(Comparator<Person> c) {

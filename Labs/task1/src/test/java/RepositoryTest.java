@@ -39,13 +39,13 @@ public class RepositoryTest {
 
     @Test
     public void testAddDelete() {
-        //for (int i = 0; i < 5; i++)
-        repository.delete(4);
+        for (int i = 0; i < 5; i++)
+            repository.delete(4);
         for (Person p : repository.getPersons())
             System.out.println(p.toString());
-        //assertArrayEquals(new Person[] { one, two, three, four }, repository.getPersons());
-        //repository.add(eight);
-        //assertArrayEquals(new Person[] { one, two, three, four, eight }, repository.getPersons());
+        assertArrayEquals(new Person[] { one, two, three, four }, repository.getPersons());
+        repository.add(eight);
+        assertArrayEquals(new Person[] { one, two, three, four, eight }, repository.getPersons());
     }
 
     @Test

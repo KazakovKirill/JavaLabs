@@ -68,11 +68,11 @@ public class Repository {
     }
 
     private void quickSort(int start, int end, Comparator<Person> c) {
-        if (start >= end) return;
+        //if (start >= end) return;
         int i = start, j = end, cur = (i + j) / 2;
         while (i < j) {
-            while (i < cur && c.compare(persons[i], persons[cur]) > 0) i++;
-            while (j > cur && c.compare(persons[cur], persons[j]) > 0) j--;
+            while (i < cur && c.compare(persons[i], persons[cur]) < 0) i++;
+            while (j > cur && c.compare(persons[cur], persons[j]) < 0) j--;
             if (i < j) {
                 Person temp = persons[i];
                 persons[i] = persons[j];
@@ -80,9 +80,9 @@ public class Repository {
                 if (i == cur) cur = j;
                 else if (j == cur) cur = i;
             }
-            quickSort(start, cur, c);
-            quickSort(cur + 1, end, c);
         }
+        if (start < cur ) quickSort(start, cur, c);
+        if (cur + 1 < end) quickSort(cur + 1, end, c);
     }
 
     public Repository findAll(Expression expr) {

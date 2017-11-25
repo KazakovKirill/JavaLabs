@@ -22,8 +22,8 @@ public class Repository {
 
     public void add(Person person) {
         if (count == persons.length) {
-            Person[] temp = Arrays.copyOf(persons, count << 1);
-            persons = temp;
+            Person[] t = Arrays.copyOf(persons, count << 1);
+            persons = t;
         }
         persons[count++] = person;
     }

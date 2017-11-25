@@ -50,7 +50,7 @@ public class RepositoryTest {
 
     @Test
     public void testQuickSort() {
-        repository.quickSort((a, b) -> a.getAge() - b.getAge());
+        repository.quickSort((a, b) -> Math.abs(a.getAge() - 30) - Math.abs(b.getAge() - 30));
         for (Person p : repository.getPersons())
             System.out.println(p.toString());
     }

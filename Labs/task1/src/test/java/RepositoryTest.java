@@ -39,8 +39,6 @@ public class RepositoryTest {
 
     @Test
     public void testAddDelete() {
-        for (Person p : repository.getPersons())
-            System.out.println(p.toString());
         repository.delete(4);
         for (Person p : repository.getPersons())
             System.out.println(p.toString());

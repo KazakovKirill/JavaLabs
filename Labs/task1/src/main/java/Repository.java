@@ -69,7 +69,7 @@ public class Repository {
 
     private void quickSort(int start, int end, Comparator<Person> c) {
         //if (start >= end) return;
-        int i = start, j = end, cur = (start + end) / 2;
+        int i = start, j = end, cur = i - (i - j) / 2;
         while (i < j) {
             while (i < cur && c.compare(persons[i], persons[cur]) < 0) i++;
             while (j > cur && c.compare(persons[cur], persons[j]) < 0) j--;

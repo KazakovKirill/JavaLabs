@@ -33,4 +33,9 @@ public class Person {
         setFio(fio);
         this.birthday = birthday;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" + "id=" + id + ", fio='" + fio + '\'' + ", birthday=" + birthday + '}';
+    }
 }

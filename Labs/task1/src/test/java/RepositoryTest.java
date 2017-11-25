@@ -44,13 +44,13 @@ public class RepositoryTest {
     @Test
     public void testShakerSort() {
         repository.shakerSort((a, b) -> b.getAge() - a.getAge());
-        Person[] persons = new Person[] { five, four, eight, nine, six, two, seven, three, one};
+        Person[] persons = new Person[] { five, four, eight, nine, six, two, seven, three, one };
         assertArrayEquals(persons, repository.getPersons());
     }
 
     @Test
     public void testQuickSort() {
-        repository.quickSort((a, b) -> Math.abs(a.getAge() - 30) - Math.abs(b.getAge() - 30));
+        repository.quickSort((a, b) -> a.getAge() - b.getAge());
         for (Person p : repository.getPersons())
             System.out.println(p.toString());
     }

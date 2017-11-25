@@ -80,7 +80,7 @@ public class Repository {
     public Repository findAll(Predicate<Person> pred) {
         Repository result = new Repository();
         for (Person p : persons)
-            if (pred.equals(p))
+            if (pred.test(p))
                 result.add(p);
         return result;
     }

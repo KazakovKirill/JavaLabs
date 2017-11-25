@@ -1,3 +1,5 @@
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -86,5 +88,13 @@ public class Repository {
             quickSort(start, cur, c);
             quickSort(cur + 1, end, c);
         }
+    }
+
+    public Repository findAll(Expression expr) {
+        Repository result = new Repository();
+        for (Person p : persons)
+            if (expr.isEqual(p))
+                result.add(p);
+        return result;
     }
 }

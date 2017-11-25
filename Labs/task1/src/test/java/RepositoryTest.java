@@ -1,5 +1,8 @@
 import org.joda.time.LocalDate;
 import org.junit.*;
+
+import java.util.function.Predicate;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RepositoryTest {
@@ -57,9 +60,8 @@ public class RepositoryTest {
 
     @Test
     public void testFindAll() {
-        Repository result = repository.findAll(person -> person.getAge() < 30);
-        System.out.println(result.getCount());
-        //Person[] persons = { one, three };
-        //assertArrayEquals(persons, result.getPersons());
+        Repository result = repository.findAll(p -> p != null && p.getAge() < 30);
+        Person[] persons = { one, three };
+        assertArrayEquals(persons, result.getPersons());
     }
 }

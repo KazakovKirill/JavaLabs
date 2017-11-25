@@ -1,5 +1,3 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -22,8 +20,7 @@ public class Repository {
 
     public void add(Person person) {
         if (count == persons.length) {
-            Person[] t = Arrays.copyOf(persons, count << 1);
-            persons = t;
+            persons = Arrays.copyOf(persons, count << 1);
         }
         persons[count++] = person;
     }
@@ -32,8 +29,7 @@ public class Repository {
         for (int i = index; i < persons.length - 1; i++)
             persons[i] = persons[i + 1];
         if (--count << 1 == persons.length) {
-            Person[] t = Arrays.copyOf(persons, count >> 1);
-            persons = t;
+            persons = Arrays.copyOf(persons, count >> 1);
         }
     }
 

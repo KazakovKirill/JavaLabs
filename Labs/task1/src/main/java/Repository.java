@@ -27,7 +27,7 @@ public class Repository {
     }
 
     public void delete(int index) {
-        for (int i = index; i < persons.length - 1; i++)
+        for (int i = index; i < count - 1; i++)
             persons[i] = persons[i + 1];
         if (--count << 1 == persons.length)
             persons = Arrays.copyOf(persons, count >> 1);

@@ -38,6 +38,15 @@ public class RepositoryTest {
     }
 
     @Test
+    public void testAddDelete() {
+        for (int i = 0; i < 5; i++)
+            repository.delete(4);
+        assertArrayEquals(new Person[] { one, two, three, four }, repository.getPersons());
+        repository.add(eight);
+        assertArrayEquals(new Person[] { one, two, three, four, eight }, repository.getPersons());
+    }
+
+    @Test
     public void testBubbleSort() {
         repository.bubbleSort((a, b) -> a.getFio().length() - b.getFio().length());
         Person[] persons = { three, seven, nine, five, eight, four, two, six, one };

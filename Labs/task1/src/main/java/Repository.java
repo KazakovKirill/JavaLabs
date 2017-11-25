@@ -27,7 +27,7 @@ public class Repository {
     }
 
     public void delete(int index) {
-        for (int i = index; i < count; i++) {
+        for (int i = index; i < count - 1; i++) {
             persons[i] = persons[i + 1];
             persons[i + 1] = null;
         }

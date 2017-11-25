@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Predicate;
 
 public class Repository {
     private Person[] persons;
@@ -76,13 +77,11 @@ public class Repository {
         }
     }
 
-    public Repository findAll(Expression expr) {
+    public Repository findAll(Predicate<Person> pred) {
         Repository result = new Repository();
-        for (Person p : persons) {
-            if (expr.isEqual(p)) {
+        for (Person p : persons)
+            if (pred.equals(p))
                 result.add(p);
-            }
-        }
         return result;
     }
 }

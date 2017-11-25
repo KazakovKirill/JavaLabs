@@ -63,25 +63,17 @@ public class Repository {
         }
     }
 
-    public void quickSort(Comparator<Person> c) {
-        quickSort(0, count - 1, c);
-    }
-
-    private void quickSort(int start, int end, Comparator<Person> c) {
-        if (start >= end) return;
-        int i = start, j = end, cur = i - (i - j) / 2;
-        while (i < j) {
-            while (i < cur && c.compare(persons[i], persons[cur]) < 0) i++;
-            while (j > cur && c.compare(persons[cur], persons[j]) < 0) j--;
-            if (i < j) {
-                Person temp = persons[i];
-                persons[i] = persons[j];
+    public void insertionSort(Comparator<Person> c) {
+        Person temp; int j;
+        for(int i = 0; i < count - 1; i++){
+            if (c.compare(persons[i], persons[i + 1]) > 0) {
+                temp = persons[i + 1];
+                persons[i + 1] = persons[i];
+                j = i;
+                while (j > 0 && c.compare(temp, persons[j - 1]) < 0)
+                    persons[j] = persons[j-- - 1];
                 persons[j] = temp;
-                if (i == cur) cur = j;
-                else if (j == cur) cur = i;
             }
-            quickSort(start, cur, c);
-            quickSort(cur + 1, end, c);
         }
     }
 

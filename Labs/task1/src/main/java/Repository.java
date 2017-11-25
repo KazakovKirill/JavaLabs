@@ -27,10 +27,9 @@ public class Repository {
     }
 
     public void delete(int index) {
-        for (int i = index; i < persons.length - 1; i++) {
+        for (int i = index; i < count - 1; i++)
             persons[i] = persons[i + 1];
-            persons[i + 1] = null;
-        }
+        persons[count - 1] = null;
         if (--count << 1 == persons.length) {
             persons = Arrays.copyOf(persons, count >> 1);
         }
@@ -83,6 +82,7 @@ public class Repository {
     public Repository findAll(Predicate<Person> pred) {
         Repository result = new Repository();
         for (Person p : persons)
+            if (pred.test(p))
                 result.add(p);
         return result;
     }

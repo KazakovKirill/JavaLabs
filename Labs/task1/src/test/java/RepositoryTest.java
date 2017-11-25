@@ -37,21 +37,29 @@ public class RepositoryTest {
     @Test
     public void testBubbleSort() {
         repository.bubbleSort((a, b) -> a.getFio().length() - b.getFio().length());
-        Person[] persons = new Person[] { three, seven, nine, five, eight, four, two, six, one };
+        Person[] persons = { three, seven, nine, five, eight, four, two, six, one };
         assertArrayEquals(persons, repository.getPersons());
     }
 
     @Test
     public void testShakerSort() {
         repository.shakerSort((a, b) -> b.getAge() - a.getAge());
-        Person[] persons = new Person[] { five, four, eight, nine, six, two, seven, three, one };
+        Person[] persons = { five, four, eight, nine, six, two, seven, three, one };
         assertArrayEquals(persons, repository.getPersons());
     }
 
     @Test
-    public void testQuickSort() {
-        repository.quickSort((a, b) -> Math.abs(a.getAge() - 30) - Math.abs(b.getAge() - 30));
-        //for (Person p : repository.getPersons())
-        //   System.out.println(p.toString());
+    public void testInsertionSort() {
+        repository.insertionSort((a, b) -> Math.abs(a.getAge() - 30) - Math.abs(b.getAge() - 30));
+        Person[] persons = { seven, two, three, six, one, nine, four, eight, five };
+        assertArrayEquals(persons, repository.getPersons());
+    }
+
+    @Test
+    public void testFindAll() {
+        Repository result = repository.findAll(person -> person.getAge() < 30);
+        System.out.println(result.getCount());
+        //Person[] persons = { one, three };
+        //assertArrayEquals(persons, result.getPersons());
     }
 }

@@ -77,7 +77,6 @@ public class Repository {
         }
     }
 
-    @Deprecated
     public Repository findAll(Predicate<Person> pred) {
         Repository result = new Repository();
         for (Person p : persons)

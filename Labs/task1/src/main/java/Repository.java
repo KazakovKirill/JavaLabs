@@ -29,7 +29,7 @@ public class Repository {
     public void delete(int index) {
         for (int i = index; i < count - 1; i++)
             persons[i] = persons[i + 1];
-        persons[--count] = null;
+        persons[count--] = null;
         if (count << 1 == persons.length) {
             persons = Arrays.copyOf(persons, count >> 1);
         }

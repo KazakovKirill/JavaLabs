@@ -1,3 +1,6 @@
+package sort;
+
+import main.Person;
 import java.util.Comparator;
 
 public class ShakerSort implements Sort {

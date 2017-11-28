@@ -1,7 +1,10 @@
+import main.Person;
+import main.Repository;
 import org.joda.time.LocalDate;
 import org.junit.*;
-
-import java.util.function.Predicate;
+import sort.BubbleSort;
+import sort.InsertionSort;
+import sort.ShakerSort;
 
 import static org.junit.jupiter.api.Assertions.*;
 

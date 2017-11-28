@@ -1,3 +1,5 @@
+package main;
+
 import org.joda.time.LocalDate;
 
 public class Person {
@@ -36,6 +38,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", fio='" + fio + '\'' + ", birthday=" + birthday + '}';
+        return "main.Person{" + "id=" + id + ", fio='" + fio + '\'' + ", birthday=" + birthday + '}';
     }
 }

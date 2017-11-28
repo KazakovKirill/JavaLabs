@@ -33,48 +33,8 @@ public class Repository {
             persons = Arrays.copyOf(persons, count << 1);
     }
 
-    public void bubbleSort(Comparator<Person> c) {
-        for (int i = 0; i < count; i++)
-            for (int j = i + 1; j < count; j++)
-                if (c.compare(persons[i], persons[j]) > 0) {
-                    Person temp = persons[i];
-                    persons[i] = persons[j];
-                    persons[j] = temp;
-                }
-    }
-
-    public void shakerSort(Comparator<Person> c) {
-        int left = 0, right = count - 1;
-        while (left < right) {
-            for (int i = left; i < right; i++)
-                if (c.compare(persons[i], persons[i + 1]) > 0) {
-                    Person temp = persons[i];
-                    persons[i] = persons[i + 1];
-                    persons[i + 1] = temp;
-                }
-            right--;
-            for (int i = right; i > left; i--)
-                if (c.compare(persons[i - 1], persons[i]) > 0) {
-                    Person temp = persons[i];
-                    persons[i] = persons[i - 1];
-                    persons[i - 1] = temp;
-                }
-            left++;
-        }
-    }
-
-    public void insertionSort(Comparator<Person> c) {
-        Person temp; int j;
-        for(int i = 0; i < count - 1; i++){
-            if (c.compare(persons[i], persons[i + 1]) > 0) {
-                temp = persons[i + 1];
-                persons[i + 1] = persons[i];
-                j = i;
-                while (j > 0 && c.compare(temp, persons[j - 1]) < 0)
-                    persons[j] = persons[j-- - 1];
-                persons[j] = temp;
-            }
-        }
+    public void sort(Sort s, Comparator<Person> c) {
+        s.sort(c, persons, count);
     }
 
     public Repository findAll(Predicate<Person> pred) {

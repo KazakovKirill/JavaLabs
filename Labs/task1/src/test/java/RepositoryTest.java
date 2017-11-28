@@ -50,24 +50,21 @@ public class RepositoryTest {
 
     @Test
     public void testBubbleSort() {
-        Sort s = new BubbleSort();
-        repository.sort(s, (a, b) -> a.getFio().length() - b.getFio().length());
+        repository.sort(new BubbleSort(), (a, b) -> a.getFio().length() - b.getFio().length());
         Person[] persons = { three, seven, nine, five, eight, four, two, six, one };
         assertArrayEquals(persons, repository.getPersons());
     }
 
     @Test
     public void testShakerSort() {
-        Sort s = new ShakerSort();
-        repository.sort(s, (a, b) -> b.getAge() - a.getAge());
+        repository.sort(new ShakerSort(), (a, b) -> b.getAge() - a.getAge());
         Person[] persons = { five, four, eight, nine, six, two, seven, three, one };
         assertArrayEquals(persons, repository.getPersons());
     }
 
     @Test
     public void testInsertionSort() {
-        Sort s = new InsertionSort();
-        repository.sort(s, (a, b) -> Math.abs(a.getAge() - 30) - Math.abs(b.getAge() - 30));
+        repository.sort(new InsertionSort(), (a, b) -> Math.abs(a.getAge() - 30) - Math.abs(b.getAge() - 30));
         Person[] persons = { seven, two, three, six, one, nine, four, eight, five };
         assertArrayEquals(persons, repository.getPersons());
     }

@@ -1,12 +1,15 @@
 package sort;
 
 import main.Person;
+import main.Repository;
+
 import java.util.Comparator;
 
 public class ShakerSort implements Sort {
     @Override
-    public void sort(Comparator<Person> c, Person[] persons, int count) {
-        int left = 0, right = count - 1;
+    public void sort(Comparator<Person> c, Repository repository) {
+        Person[] persons = repository.getPersons();
+        int left = 0, right = repository.getCount() - 1;
         while (left < right) {
             for (int i = left; i < right; i++)
                 if (c.compare(persons[i], persons[i + 1]) > 0) {
@@ -23,5 +26,6 @@ public class ShakerSort implements Sort {
                 }
             left++;
         }
+        repository.setPersons(persons);
     }
 }

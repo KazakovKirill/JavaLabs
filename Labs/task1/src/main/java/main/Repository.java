@@ -16,7 +16,11 @@ public class Repository {
     }
 
     public Person[] getPersons() {
-        return persons = Arrays.copyOf(persons, count);
+        return Arrays.copyOf(persons, count);
+    }
+
+    public void setPersons(Person[] persons) {
+        this.persons = persons;
     }
 
     public int getCount() {
@@ -29,7 +33,7 @@ public class Repository {
         persons[count++] = person;
     }
 
-    public void delete(int index) {
+    public void remove(int index) {
         for (int i = index; i < count - 1; i++)
             persons[i] = persons[i + 1];
         persons[--count] = null;
@@ -38,7 +42,7 @@ public class Repository {
     }
 
     public void sort(Sort s, Comparator<Person> c) {
-        s.sort(c, persons, count);
+        s.sort(c, this);
     }
 
     public Repository findAllByFio(String fio) {

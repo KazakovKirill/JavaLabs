@@ -1,13 +1,16 @@
 package sort;
 
 import main.Person;
+import main.Repository;
+
 import java.util.Comparator;
 
 public class InsertionSort implements Sort {
     @Override
-    public void sort(Comparator<Person> c, Person[] persons, int count) {
+    public void sort(Comparator<Person> c, Repository repository) {
+        Person[] persons = repository.getPersons();
         Person temp; int j;
-        for (int i = 0; i < count - 1; i++) {
+        for (int i = 0; i < repository.getCount() - 1; i++) {
             if (c.compare(persons[i], persons[i + 1]) > 0) {
                 temp = persons[i + 1];
                 persons[i + 1] = persons[i];
@@ -17,5 +20,6 @@ public class InsertionSort implements Sort {
                 persons[j] = temp;
             }
         }
+        repository.setPersons(persons);
     }
 }

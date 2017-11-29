@@ -74,8 +74,22 @@ public class RepositoryTest {
 
     @Test
     public void testFindAll() {
-        Repository result = repository.findAll(p -> p != null && p.getAge() < 30);
+        Repository result = repository.findAll(p -> p.getAge() < 30);
         Person[] persons = { one, three };
+        assertArrayEquals(persons, result.getPersons());
+    }
+
+    @Test
+    public void testFindAllByFio() {
+        Repository result = repository.findAllByFio("Попова Наталия Юрьевна");
+        Person[] persons = { three };
+        assertArrayEquals(persons, result.getPersons());
+    }
+
+    @Test
+    public void testFindAllByAge() {
+        Repository result = repository.findAllByAge(45);
+        Person[] persons = { four, eight };
         assertArrayEquals(persons, result.getPersons());
     }
 }

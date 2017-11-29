@@ -41,10 +41,18 @@ public class Repository {
         s.sort(c, persons, count);
     }
 
+    public Repository findAllByFio(String fio) {
+        return findAll(p -> p.getFio().compareTo(fio) == 0);
+    }
+
+    public Repository findAllByAge(int age) {
+        return findAll(p -> p.getAge() == age);
+    }
+
     public Repository findAll(Predicate<Person> pred) {
         Repository result = new Repository();
         for (Person p : persons)
-            if (pred.test(p))
+            if (p != null && pred.test(p))
                 result.add(p);
         return result;
     }

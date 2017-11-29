@@ -16,6 +16,6 @@ public class BubbleSort implements Sort {
                     persons[i] = persons[j];
                     persons[j] = temp;
                 }
-        repository.setPersons(persons);
+        //repository.setPersons(persons);
     }
 }

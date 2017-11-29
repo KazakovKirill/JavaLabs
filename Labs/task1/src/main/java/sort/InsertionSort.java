@@ -20,6 +20,6 @@ public class InsertionSort implements Sort {
                 persons[j] = temp;
             }
         }
-        repository.setPersons(persons);
+        //repository.setPersons(persons);
     }
 }

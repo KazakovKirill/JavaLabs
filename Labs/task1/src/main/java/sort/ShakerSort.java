@@ -26,6 +26,6 @@ public class ShakerSort implements Sort {
                 }
             left++;
         }
-        repository.setPersons(persons);
+        //repository.setPersons(persons);
     }
 }

@@ -16,11 +16,7 @@ public class Repository {
     }
 
     public Person[] getPersons() {
-        return Arrays.copyOf(persons, count);
-    }
-
-    public void setPersons(Person[] persons) {
-        this.persons = persons;
+        return persons = Arrays.copyOf(persons, count);
     }
 
     public int getCount() {

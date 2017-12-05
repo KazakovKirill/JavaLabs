@@ -9,10 +9,16 @@ import java.util.function.Predicate;
 public class Repository {
     private Person[] persons;
     private int count;
+    private Sort sorter;
 
     public Repository() {
         persons = new Person[8];
+        sorter = Configurator.getSort();
         count = 0;
+    }
+
+    public void setSorter(Sort sorter){
+        this.sorter = sorter;
     }
 
     public Person[] getPersons() {
@@ -37,8 +43,8 @@ public class Repository {
             persons = Arrays.copyOf(persons, count << 1);
     }
 
-    public void sort(Sort s, Comparator<Person> c) {
-        s.sort(c, this);
+    public void sort(Comparator<Person> c) {
+        sorter.sort(c, this);
     }
 
     public Repository findAllByFio(String fio) {

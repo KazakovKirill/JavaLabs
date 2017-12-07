@@ -1,4 +1,4 @@
-package main;
+package entities;
 
 import org.joda.time.LocalDate;
 
@@ -38,6 +38,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return "main.Person{" + "id=" + id + ", fio='" + fio + '\'' + ", birthday=" + birthday + '}';
+        return "entities.Person{" + "id=" + id + ", fio='" + fio + '\'' + ", birthday=" + birthday + '}';
     }
 }

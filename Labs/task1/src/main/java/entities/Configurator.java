@@ -1,5 +1,6 @@
-package main;
+package entities;
 
+import repositories.Repository;
 import sort.*;
 
 import java.io.IOException;
@@ -10,12 +11,10 @@ public class Configurator {
     public static Sort getSort() {
         Properties prop = new Properties();
         InputStream input = null;
-
         try {
             String filename = "config.properties";
             input = Repository.class.getClassLoader().getResourceAsStream(filename);
             prop.load(input);
-
             String sortType = prop.getProperty("sorter");
             switch (sortType) {
                 case "bubble":
@@ -27,17 +26,15 @@ public class Configurator {
                 default:
                     throw new Exception("Wrong sort type: " + sortType);
             }
-
-        } catch (Exception ex) {
+        }
+        catch (Exception ex) {
             ex.printStackTrace();
             return null;
-        } finally {
+        }
+        finally {
             if (input != null) {
-                try {
-                    input.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                try { input.close(); }
+                catch (IOException e) { e.printStackTrace(); }
             }
         }
     }

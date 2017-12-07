@@ -1,7 +1,9 @@
-import main.Person;
+package repositories;
+
+import entities.Person;
 import org.joda.time.LocalDate;
 import org.junit.*;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 
 public class PersonTest {
     private Person person;
@@ -14,9 +16,9 @@ public class PersonTest {
     @Test
     public void testid() {
         person.setId(2);
-        assertEquals(2, person.getId());
+        Assertions.assertEquals(2, person.getId());
         person.setFio("Казаков Кирилл Александрович");
-        assertEquals("Казаков Кирилл Александрович", person.getFio());
-        assertEquals(45, person.getAge());
+        Assertions.assertEquals("Казаков Кирилл Александрович", person.getFio());
+        Assertions.assertEquals(45, person.getAge());
     }
 }

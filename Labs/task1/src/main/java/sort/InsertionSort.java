@@ -1,25 +1,23 @@
 package sort;
 
-import main.Person;
-import main.Repository;
+import repositories.Repository;
 
 import java.util.Comparator;
 
-public class InsertionSort implements Sort {
+public class InsertionSort<T> implements Sort<T> {
     @Override
-    public void sort(Comparator<Person> c, Repository repository) {
-        Person[] persons = repository.getPersons();
-        Person temp; int j;
+    public void sort(Comparator<T> comparator, Repository repository) {
+        T[] items = (T[]) repository.getItems();
+        T temp; int j;
         for (int i = 0; i < repository.getCount() - 1; i++) {
-            if (c.compare(persons[i], persons[i + 1]) > 0) {
-                temp = persons[i + 1];
-                persons[i + 1] = persons[i];
+            if (comparator.compare(items[i], items[i + 1]) > 0) {
+                temp = items[i + 1];
+                items[i + 1] = items[i];
                 j = i;
-                while (j > 0 && c.compare(temp, persons[j - 1]) < 0)
-                    persons[j] = persons[j-- - 1];
-                persons[j] = temp;
+                while (j > 0 && comparator.compare(temp, items[j - 1]) < 0)
+                    items[j] = items[j-- - 1];
+                items[j] = temp;
             }
         }
-        //repository.setPersons(persons);
     }
 }

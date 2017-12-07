@@ -9,5 +9,4 @@ public interface Repository<T> {
     void add(T item);
     void remove(int index);
     void sort(Comparator<T> c);
-    Repository<T> findAll(Predicate<T> pred);
 }

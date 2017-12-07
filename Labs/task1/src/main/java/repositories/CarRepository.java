@@ -11,9 +11,8 @@ public class CarRepository extends AbstractRepository<Car> {
         count = 0;
     }
 
-    @Override
-    public Repository findAll(Predicate<Car> pred) {
-        Repository result = new CarRepository();
+    public CarRepository findAll(Predicate<Car> pred) {
+        CarRepository result = new CarRepository();
         for (Car item : items)
             if (item != null && pred.test(item))
                 result.add(item);
